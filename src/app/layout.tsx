@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { DM_Sans } from "next/font/google";
+import { cn } from "@/lib/utils";
+import { Header } from "@/components/header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -11,6 +14,11 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+});
+
+const font = DM_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "900", "1000"],
 });
 
 export const metadata: Metadata = {
@@ -26,8 +34,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={cn("antialiased", geistSans.variable, geistMono.variable)}
       >
+        <Header />
         {children}
       </body>
     </html>
