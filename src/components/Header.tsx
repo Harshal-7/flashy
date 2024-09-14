@@ -1,13 +1,12 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { MenuIcon, NotepadText, Plus, User, X } from "lucide-react";
+import { MenuIcon, NotepadText, Plus, X } from "lucide-react";
 import Link from "next/link";
 import { Poppins } from "next/font/google";
 import { usePathname } from "next/navigation";
 import MyButton from "./ui/myBtn";
 import { useState } from "react";
-import { Button } from "./ui/button";
 
 // const font = Nerko_One({ subsets: ["latin"], weight: "400" });
 const font = Poppins({ subsets: ["latin"], weight: ["300", "400", "600"] });
