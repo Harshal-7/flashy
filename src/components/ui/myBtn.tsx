@@ -1,9 +1,9 @@
 import { User } from "lucide-react";
 
-const MyButton = () => {
+const MyLoginBtn = () => {
   return (
     <button
-      className={`
+      className="
         px-4 py-2 rounded-full 
         flex items-center gap-1.5
         text-secondary
@@ -16,7 +16,7 @@ const MyButton = () => {
 
         hover:text-primary
         hover:bg-secondary
-    `}
+      "
     >
       <User className="w-4 h-4" />
       <span className="">Log In</span>
@@ -24,4 +24,4 @@ const MyButton = () => {
   );
 };
 
-export default MyButton;
+export default MyLoginBtn;
