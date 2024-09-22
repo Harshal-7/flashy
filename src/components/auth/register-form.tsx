@@ -46,6 +46,8 @@ const RegisterForm = () => {
   }, [form.getValues().name.length || form.getValues().email.length]);
 
   const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
+    setLoading(true);
+
     register(values).then((res) => {
       if (res.error) {
         toast({
@@ -56,6 +58,7 @@ const RegisterForm = () => {
         toast({
           title: res.success,
           description: "Login to access dashboard",
+          variant: "primary",
         });
         setLoading(false);
         router.replace(`/login`);
@@ -176,7 +179,7 @@ const RegisterForm = () => {
             "
               >
                 {loading ? (
-                  <Loader2 className="animate-spin w-5 h-5" />
+                  <Loader2 className="animate-spin w-6 h-6" />
                 ) : (
                   <span>Create An Account</span>
                 )}

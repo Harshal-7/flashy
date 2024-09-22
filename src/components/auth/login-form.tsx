@@ -49,6 +49,9 @@ const LoginForm = () => {
   }, [form.getValues().email.length || form.getValues().password.length]);
 
   const onSubmit = (data: z.infer<typeof LoginSchema>) => {
+    setLoading(true);
+
+    //User validation and authentication
     login(data)
       .then((res) => {
         if (res?.error) {
@@ -59,6 +62,7 @@ const LoginForm = () => {
         } else {
           toast({
             title: "User Logged In Successfully",
+            variant: "primary",
           });
         }
       })
@@ -158,7 +162,7 @@ const LoginForm = () => {
             "
               >
                 {loading ? (
-                  <Loader2 className="animate-spin w-5 h-5" />
+                  <Loader2 className="animate-spin w-6 h-6" />
                 ) : (
                   <span>Log In</span>
                 )}
