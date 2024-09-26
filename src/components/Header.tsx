@@ -23,7 +23,7 @@ const font = Poppins({ subsets: ["latin"], weight: ["300", "400", "600"] });
 export const Header = ({ session }: { session: any }) => {
   const path = usePathname();
   const isScrolled = useScrollPosition();
-  const scrollClass = isScrolled ? "shadow" : "shadow-none";
+  const scrollClass = isScrolled ? "shadow bg-background" : "shadow-none";
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [myOpacity, setMyOpacity] = useState(false);
@@ -44,6 +44,7 @@ export const Header = ({ session }: { session: any }) => {
   }
 
   const handleLogout = () => {
+    console.log("logging out...!");
     setIsMenuOpen((prev) => !prev);
     signOut({ redirectTo: "/" });
   };
@@ -51,7 +52,7 @@ export const Header = ({ session }: { session: any }) => {
   return (
     <div
       className={cn(
-        "flex w-full bg-background shadow z-50]",
+        "flex w-full shadow z-50]",
         scrollClass,
         path === "/create-card" ? "relative" : "sticky top-0 left-0"
       )}
